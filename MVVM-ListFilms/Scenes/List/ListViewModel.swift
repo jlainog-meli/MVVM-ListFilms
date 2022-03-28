@@ -29,7 +29,7 @@ class ListViewModel {
         self.topRatedMoviesUseCase = topRatedMoviesUseCase
     }
     
-    // MARK: - Private Functions
+    // MARK: Private Functions
     
     private func callService() {
         viewController?.setupUI(state: .isLoading(isLoading: true))
