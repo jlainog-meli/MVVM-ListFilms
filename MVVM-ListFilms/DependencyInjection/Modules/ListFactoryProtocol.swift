@@ -7,6 +7,6 @@
 
 protocol ListFactoryProtocol {
     func makeListViewController() -> ListViewController
-    func makeDetailViewController() -> DetailViewController
+    func makeDetailViewController(data: TopRatedMovieList) -> DetailViewController
 }
 

@@ -28,7 +28,7 @@ class FlowController {
     // MARK: - Public Functions
 
     public func start() {
-        var viewController = factory.makeListViewController()
+        let viewController = factory.makeListViewController()
         viewController.flowProtocol = self
         navigationController?.setViewControllers([viewController], animated: true)
     }
@@ -38,7 +38,7 @@ class FlowController {
 
 extension FlowController: ListViewFlowProtocol {
     func goToDetail(with data: TopRatedMovieList) {
-        let viewController = factory.makeDetailViewController()
+        let viewController = factory.makeDetailViewController(data: data)
         viewController.flowProtocol = self
         navigationController?.pushViewController(viewController, animated: true)
     }

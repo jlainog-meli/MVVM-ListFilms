@@ -58,9 +58,9 @@ class ListAssembly: Assembly {
             return DetailViewModel(data: data)
         }
         
-        container.register(DetailViewController.self) { resolver in
+        container.register(DetailViewController.self) { (resolver: Resolver, data: TopRatedMovieList) in
             let view = resolver.resolve(DetailViewProtocol.self)!
-            var viewModel = resolver.resolve(DetailViewModelProtocol.self)!
+            var viewModel = resolver.resolve(DetailViewModelProtocol.self, argument: data)!
             let viewController = DetailViewController(
                 viewProtocol: view,
                 viewModelProtocol: viewModel)

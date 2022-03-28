@@ -50,7 +50,7 @@ final class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.title = Constants.title
+        title = Constants.title
         loadData()
     }
     

@@ -24,7 +24,7 @@ class ListFactory: ListFactoryProtocol {
         return resolver.resolve(ListViewController.self)!
     }
     
-    func makeDetailViewController() -> DetailViewController {
-        return resolver.resolve(DetailViewController.self)!
+    func makeDetailViewController(data: TopRatedMovieList) -> DetailViewController {
+        return resolver.resolve(DetailViewController.self, argument: data)!
     }
 }

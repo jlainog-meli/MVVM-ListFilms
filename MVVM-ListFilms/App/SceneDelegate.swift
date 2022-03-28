@@ -39,10 +39,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func applyNavigationAppearances() {
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        UINavigationBar.appearance().barTintColor = .prussianBlue
-        UINavigationBar.appearance().barStyle = .black
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .prussianBlue
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.standardAppearance = appearance;
+        navBarAppearance.scrollEdgeAppearance = navBarAppearance.standardAppearance
+        navBarAppearance.tintColor = .white
+        navBarAppearance.barTintColor = .white
+        navBarAppearance.isTranslucent = true
+
     }
 }
 
