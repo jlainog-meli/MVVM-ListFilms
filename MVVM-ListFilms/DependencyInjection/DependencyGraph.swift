@@ -7,7 +7,7 @@
 
 import Swinject
 
-public final class DependencyGraph {
+final class DependencyGraph {
     public static func build() -> [Assembly] {
         return [
             FoudationAssembly(),

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FlowController {
+final class FlowController {
     
     // MARK: - Private Attributes
 

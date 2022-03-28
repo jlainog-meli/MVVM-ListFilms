@@ -7,7 +7,7 @@
 
 import Swinject
 
-class ListAssembly: Assembly {
+final class ListAssembly: Assembly {
     func assemble(container: Container) {
         
         // MARK: - TopRatedMoviesUseCaseProtocol

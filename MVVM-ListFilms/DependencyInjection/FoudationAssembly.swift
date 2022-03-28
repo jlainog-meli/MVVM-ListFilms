@@ -7,7 +7,7 @@
 
 import Swinject
 
-class FoudationAssembly: Assembly {
+final class FoudationAssembly: Assembly {
     func assemble(container: Container) {
         
         // MARK: - Factory

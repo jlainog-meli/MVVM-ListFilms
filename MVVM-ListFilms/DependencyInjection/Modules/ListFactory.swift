@@ -7,7 +7,7 @@
 
 import Swinject
 
-class ListFactory: ListFactoryProtocol {
+final class ListFactory: ListFactoryProtocol {
     
     
     // MARK: - PRIVATE PROPERTIES
