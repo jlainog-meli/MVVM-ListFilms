@@ -129,8 +129,7 @@ final class ListDataViewCell: UITableViewCell {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             imageFilm.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Metrics.cellSpacing),
-            imageFilm.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Metrics.cellSpacing),
-            imageFilm.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Metrics.cellSpacing),
+            imageFilm.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -Metrics.cellSpacing),            imageFilm.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Metrics.cellSpacing),
             imageFilm.heightAnchor.constraint(equalToConstant: Metrics.heightImage),
             imageFilm.widthAnchor.constraint(equalToConstant: Metrics.widthImage),
 

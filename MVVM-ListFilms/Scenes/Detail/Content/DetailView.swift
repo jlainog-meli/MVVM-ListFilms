@@ -33,7 +33,7 @@ final class DetailView: UIView {
     // MARK: - UI
     
     private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView(frame: .zero)
+        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false

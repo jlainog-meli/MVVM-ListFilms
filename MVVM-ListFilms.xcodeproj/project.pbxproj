@@ -54,6 +54,7 @@
 		79E82A7E27F211AB0006A5CE /* DetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A7D27F211AB0006A5CE /* DetailProtocol.swift */; };
 		79E82A8127F211BA0006A5CE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A8027F211BA0006A5CE /* DetailView.swift */; };
 		79E82A8327F211C30006A5CE /* DetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A8227F211C30006A5CE /* DetailViewProtocol.swift */; };
+		79E82A8527F227F30006A5CE /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A8427F227F30006A5CE /* Extension+UIImageView.swift */; };
 		D15578C7453D1055256671BF /* Pods_MVVM_ListFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9102281B24E289E428C245 /* Pods_MVVM_ListFilms.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,7 @@
 		79E82A7D27F211AB0006A5CE /* DetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocol.swift; sourceTree = "<group>"; };
 		79E82A8027F211BA0006A5CE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		79E82A8227F211C30006A5CE /* DetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewProtocol.swift; sourceTree = "<group>"; };
+		79E82A8427F227F30006A5CE /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
 		AA0872B2F9C92E4257870C3A /* Pods-MVVM-ListFilms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-ListFilms.release.xcconfig"; path = "Target Support Files/Pods-MVVM-ListFilms/Pods-MVVM-ListFilms.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -275,6 +277,7 @@
 				79E82A7027F202080006A5CE /* Extension+String.swift */,
 				79E82A7227F204040006A5CE /* Extension+NSObject.swift */,
 				79E82A7727F20E540006A5CE /* Extension+UITextField.swift */,
+				79E82A8427F227F30006A5CE /* Extension+UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				79E82A7627F206800006A5CE /* SearchTextField.swift in Sources */,
 				79E82A2327F154B50006A5CE /* ListFactoryProtocol.swift in Sources */,
 				79E82A7C27F211A30006A5CE /* DetailViewModel.swift in Sources */,
+				79E82A8527F227F30006A5CE /* Extension+UIImageView.swift in Sources */,
 				79E82A2B27F155B00006A5CE /* NetworkMockOperation.swift in Sources */,
 				79E82A2F27F1575A0006A5CE /* ListAssembly.swift in Sources */,
 				79E82A2D27F155D00006A5CE /* NetworkOperationError.swift in Sources */,
