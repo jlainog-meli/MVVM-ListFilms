@@ -11,27 +11,32 @@ class NetworkMockOperation {
 
     // MARK: - Private Attributes
 
-    private let data: Data?
+    private let resourceName: String
     
     // MARK: - Setup
 
-    init(data: Data?) {
-        self.data = data
+    init(resourceName: String) {
+        self.resourceName = resourceName
     }
     
     // MARK: - Private Functions
 
     private func callNetwork<T: Decodable>(request: RequestProtocol, completion: @escaping (Result<T, NetworkOperationError>) -> Void) {
-        guard let jsonData = data else {
+        guard let path = Bundle.main.path(forResource: resourceName, ofType: "json") else {
             completion(.failure(.noData))
             return
         }
         
         do {
+            let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            
             let decoder = JSONDecoder()
-            let decoded = try decoder.decode(T.self, from: jsonData)
-            completion(.success(decoded))
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            decoder.dateDecodingStrategy = .secondsSince1970
+            let serializedResponse = try decoder.decode(T.self, from: jsonData)
+            completion(.success(serializedResponse))
         } catch {
+            print(error)
             completion(.failure(.erroParsable))
         }
 
