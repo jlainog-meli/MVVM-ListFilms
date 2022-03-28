@@ -9,9 +9,15 @@ import UIKit
 
 class ListViewModel {
 
+    // MARK: - Constants
+
+    private enum Constants {
+        static let posterPath: String = "https://image.tmdb.org/t/p/w500"
+    }
+    
     // MARK: - Public Attributes
 
-    weak var viewController: ListViewControllerProtocol?
+    public weak var viewController: ListViewControllerProtocol?
     
     // MARK: - Private Attributes
     
@@ -19,9 +25,7 @@ class ListViewModel {
     
     // MARK: - Setup
 
-    init(viewController: ListViewControllerProtocol,
-         topRatedMoviesUseCase: TopRatedMoviesUseCaseProtocol) {
-        self.viewController = viewController
+    init(topRatedMoviesUseCase: TopRatedMoviesUseCaseProtocol) {
         self.topRatedMoviesUseCase = topRatedMoviesUseCase
     }
     
@@ -29,6 +33,7 @@ class ListViewModel {
     // MARK: Private Functions
     
     private func callService() {
+        viewController?.setupUI(state: .isLoading(isLoading: true))
         topRatedMoviesUseCase.getTopRatedMovies { [weak self] result in
             switch result {
             case let .success(response):
@@ -40,7 +45,27 @@ class ListViewModel {
     }
     
     private func createCustomModel(response: TopRatedMoviesResponse) {
-        self.viewController?.setupUI(state: .hasError(message: "error.text"))
+        let data = TopRatedMovies(
+            page: response.page,
+            totalResults: response.totalPages,
+            totalPages: response.totalPages,
+            results: makeTopRatedMovieList(results: response.results))
+        self.viewController?.setupUI(state: .hasData(data: data))
+    }
+                                     
+    private func makeTopRatedMovieList(results: [TopRatedListResults]) -> [TopRatedMovieList] {
+        var list: [TopRatedMovieList] = []
+        results.forEach { item in
+            list.append(TopRatedMovieList(
+                popularity: item.popularity,
+                voteCount: item.voteCount,
+                posterPath: Constants.posterPath + item.posterPath,
+                genreIds: item.genreIds,
+                title: item.title,
+                overview: item.overview,
+                releaseDate: item.releaseDate))
+        }
+        return list
     }
 }
 

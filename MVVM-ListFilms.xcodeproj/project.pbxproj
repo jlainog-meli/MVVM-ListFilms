@@ -36,6 +36,9 @@
 		79E82A5627F1704A0006A5CE /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A5527F1704A0006A5CE /* ListView.swift */; };
 		79E82A5827F170750006A5CE /* ListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A5727F170750006A5CE /* ListViewProtocol.swift */; };
 		79E82A5A27F172A40006A5CE /* TopRatedMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A5927F172A40006A5CE /* TopRatedMovies.swift */; };
+		79E82A5C27F188250006A5CE /* ListLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A5B27F188250006A5CE /* ListLoadingView.swift */; };
+		79E82A5F27F188D80006A5CE /* LottieFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A5E27F188D80006A5CE /* LottieFactory.swift */; };
+		79E82A6227F189190006A5CE /* shimmer-bar-gray.json in Resources */ = {isa = PBXBuildFile; fileRef = 79E82A6127F189190006A5CE /* shimmer-bar-gray.json */; };
 		D15578C7453D1055256671BF /* Pods_MVVM_ListFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9102281B24E289E428C245 /* Pods_MVVM_ListFilms.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +95,9 @@
 		79E82A5527F1704A0006A5CE /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		79E82A5727F170750006A5CE /* ListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewProtocol.swift; sourceTree = "<group>"; };
 		79E82A5927F172A40006A5CE /* TopRatedMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedMovies.swift; sourceTree = "<group>"; };
+		79E82A5B27F188250006A5CE /* ListLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLoadingView.swift; sourceTree = "<group>"; };
+		79E82A5E27F188D80006A5CE /* LottieFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieFactory.swift; sourceTree = "<group>"; };
+		79E82A6127F189190006A5CE /* shimmer-bar-gray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "shimmer-bar-gray.json"; sourceTree = "<group>"; };
 		AA0872B2F9C92E4257870C3A /* Pods-MVVM-ListFilms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-ListFilms.release.xcconfig"; path = "Target Support Files/Pods-MVVM-ListFilms/Pods-MVVM-ListFilms.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +212,7 @@
 		79E82A1427F14E290006A5CE /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				79E82A5D27F188C80006A5CE /* Lottie */,
 				79E82A1727F14EB40006A5CE /* Extensions */,
 				79E82A1627F14EA60006A5CE /* Colors */,
 			);
@@ -266,7 +273,7 @@
 		79E82A1B27F1544D0006A5CE /* List */ = {
 			isa = PBXGroup;
 			children = (
-				79E82A5427F1703D0006A5CE /* Content */,
+				79E82A5427F1703D0006A5CE /* Components */,
 				79E82A4E27F170160006A5CE /* ListViewController.swift */,
 				79E82A5027F1702A0006A5CE /* ListViewModel.swift */,
 				79E82A5227F170350006A5CE /* ListProtocol.swift */,
@@ -345,14 +352,32 @@
 			path = GenreMovieUseCase;
 			sourceTree = "<group>";
 		};
-		79E82A5427F1703D0006A5CE /* Content */ = {
+		79E82A5427F1703D0006A5CE /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				79E82A5527F1704A0006A5CE /* ListView.swift */,
 				79E82A5727F170750006A5CE /* ListViewProtocol.swift */,
 				79E82A5927F172A40006A5CE /* TopRatedMovies.swift */,
+				79E82A5B27F188250006A5CE /* ListLoadingView.swift */,
 			);
-			path = Content;
+			path = Components;
+			sourceTree = "<group>";
+		};
+		79E82A5D27F188C80006A5CE /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				79E82A6027F188E30006A5CE /* json */,
+				79E82A5E27F188D80006A5CE /* LottieFactory.swift */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		79E82A6027F188E30006A5CE /* json */ = {
+			isa = PBXGroup;
+			children = (
+				79E82A6127F189190006A5CE /* shimmer-bar-gray.json */,
+			);
+			path = json;
 			sourceTree = "<group>";
 		};
 		BF82527506B748CC5C23874D /* Frameworks */ = {
@@ -469,6 +494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79E82A6227F189190006A5CE /* shimmer-bar-gray.json in Resources */,
 				79E829EB27F14C820006A5CE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,6 +571,7 @@
 				79E82A4727F161850006A5CE /* GenreMovieUseCaseProtocol.swift in Sources */,
 				79E82A2127F154A60006A5CE /* DependencyGraph.swift in Sources */,
 				79E82A3F27F1614A0006A5CE /* TopRatedMoviesUseCase.swift in Sources */,
+				79E82A5F27F188D80006A5CE /* LottieFactory.swift in Sources */,
 				79E82A5627F1704A0006A5CE /* ListView.swift in Sources */,
 				79E82A2727F1557D0006A5CE /* NetworkOperation.swift in Sources */,
 				79E82A3D27F15E450006A5CE /* Request.swift in Sources */,
@@ -563,6 +590,7 @@
 				79E829E427F14C7F0006A5CE /* SceneDelegate.swift in Sources */,
 				79E82A4927F1633A0006A5CE /* TopRatedMoviesResponse.swift in Sources */,
 				79E82A4227F161610006A5CE /* TopRatedMoviesUseCaseProtocol.swift in Sources */,
+				79E82A5C27F188250006A5CE /* ListLoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +752,7 @@
 				DEVELOPMENT_TEAM = 22YGM83NY4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MVVM-ListFilms/App/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MVVM-ListFilms";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -752,6 +781,7 @@
 				DEVELOPMENT_TEAM = 22YGM83NY4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MVVM-ListFilms/App/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MVVM-ListFilms";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

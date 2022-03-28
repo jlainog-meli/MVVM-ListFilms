@@ -16,21 +16,23 @@ class ListViewController: UIViewController {
         static let title: String = "Lista de filmes"
     }
     
-    // MARK: - Public Attributes
-
-    public var viewModelProtocol: ListViewModelProtocol?
-    public weak var flowProtocol: ListViewFlowProtocol?
-
     // MARK: - Private Attributes
 
     private let viewProtocol: ListViewProtocol
+    private let viewModelProtocol: ListViewModelProtocol
+
+    // MARK: - Public Attributes
+
+    public weak var flowProtocol: ListViewFlowProtocol?
     
     // MARK: - Setup
 
     init(
-        viewProtocol: ListViewProtocol
+        viewProtocol: ListViewProtocol,
+        viewModelProtocol: ListViewModelProtocol
     ) {
         self.viewProtocol = viewProtocol
+        self.viewModelProtocol = viewModelProtocol
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -55,7 +57,7 @@ class ListViewController: UIViewController {
     // MARK: - Private Functions
 
     private func loadData() {
-        viewModelProtocol?.viewDidLoad()
+        viewModelProtocol.viewDidLoad()
     }
 }
 

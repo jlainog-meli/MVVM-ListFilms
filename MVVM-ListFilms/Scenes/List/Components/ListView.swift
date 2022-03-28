@@ -22,6 +22,14 @@ class ListView: UIView {
     private lazy var view: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    private lazy var viewLoading: ListLoadingView = {
+        let view = ListLoadingView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
         return view
     }()
         
@@ -41,6 +49,7 @@ class ListView: UIView {
 
     private func constraintUI() {
         self.addSubview(view)
+        view.addSubview(viewLoading)
     }
     
     private func setupConstraints() {
@@ -48,18 +57,42 @@ class ListView: UIView {
             view.topAnchor.constraint(equalTo: self.topAnchor),
             view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            view.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+            view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            
+            viewLoading.topAnchor.constraint(equalTo: view.topAnchor),
+            viewLoading.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            viewLoading.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            viewLoading.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
     
     // MARK: - Private Functions
+    
+    private func setLoadingView(isLoading: Bool) {
+        viewLoading.isHidden = !isLoading
+    }
+    
+    private func setDataView(data: TopRatedMovies) {
+        
+    }
 
+    private func setErrorView(message: String) {
+        
+    }
+    
 }
 
 // MARK: - Extensions
 
 extension ListView: ListViewProtocol {
     func setupUI(state: ListState) {
-        
+        switch state {
+        case let .isLoading(isLoading):
+            setLoadingView(isLoading: isLoading)
+        case let .hasData(data):
+            setDataView(data: data)
+        case let .hasError(message):
+            setErrorView(message: message)
+        }
     }
 }

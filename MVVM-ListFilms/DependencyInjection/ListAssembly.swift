@@ -30,22 +30,22 @@ class ListAssembly: Assembly {
             return ListView()
         }
         
-        container.register(ListViewController.self) { resolver in
-            let view = resolver.resolve(ListViewProtocol.self)!
-            return ListViewController(
-                viewProtocol: view)
-        }
-        
         container.register(ListViewModelProtocol.self) { resolver in
-            let viewController = resolver.resolve(ListViewController.self)!
             let topRatedMoviesUseCase = resolver.resolve(TopRatedMoviesUseCaseProtocol.self)!
-            let viewModel = ListViewModel(
-                viewController: viewController,
+            return ListViewModel(
                 topRatedMoviesUseCase: topRatedMoviesUseCase
             )
-            viewController.viewModelProtocol = viewModel
-            return viewModel
         }
-
+        
+        container.register(ListViewController.self) { resolver in
+            let view = resolver.resolve(ListViewProtocol.self)!
+            var viewModel = resolver.resolve(ListViewModelProtocol.self)!
+            let viewController = ListViewController(
+                viewProtocol: view,
+                viewModelProtocol: viewModel)
+            
+            viewModel.viewController = viewController
+            return viewController
+        }
     }
 }

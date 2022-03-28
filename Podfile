@@ -6,4 +6,5 @@ target 'MVVM-ListFilms' do
 
   pod 'Swinject'
   pod 'IQKeyboardManager'
+  pod 'lottie-ios'
 end

@@ -1,20 +1,24 @@
 PODS:
   - IQKeyboardManager (6.5.9)
+  - lottie-ios (3.2.3)
   - Swinject (2.8.1)
 
 DEPENDENCIES:
   - IQKeyboardManager
+  - lottie-ios
   - Swinject
 
 SPEC REPOS:
   trunk:
     - IQKeyboardManager
+    - lottie-ios
     - Swinject
 
 SPEC CHECKSUMS:
   IQKeyboardManager: 241cc94ccabc9deb8f8bd7d12f00d73288d13ecc
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
 
-PODFILE CHECKSUM: 2c0dbf4e007806f141bf347e9d7ca0b007c7097b
+PODFILE CHECKSUM: 986ab795a925ce7001793c547f176869b48b452b
 
 COCOAPODS: 1.11.2

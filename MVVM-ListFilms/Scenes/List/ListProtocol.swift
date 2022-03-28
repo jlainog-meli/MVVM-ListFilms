@@ -16,6 +16,7 @@ protocol ListViewControllerProtocol: AnyObject {
 // MARK: - ViewModel
 
 protocol ListViewModelProtocol {
+    var viewController: ListViewControllerProtocol? { get set }
     func viewDidLoad()
 }
 

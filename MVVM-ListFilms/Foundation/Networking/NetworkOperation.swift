@@ -12,19 +12,17 @@ class NetworkOperation {
     // MARK: - Private Attributes
 
     private let baseURL: String = "https://api.themoviedb.org/3/"
-    private let privateKey: String = "api_key"
-    private let privateKeyValue: String = "c5850ed73901b8d268d0898a8a9d8bff"
+    private let privateKey: String = "?api_key=bcd6c2c21e1e75b74d1e2d38ddc9fe0b"
 
     // MARK: - Private Functions
 
     private func callNetwork<T: Decodable>(request: RequestProtocol, completion: @escaping (Result<T, NetworkOperationError>) -> Void) {
-        guard let apiURL = URL(string: baseURL + request.path) else {
+        guard let apiURL = URL(string: baseURL + request.path + privateKey) else {
             completion(.failure(.noURL))
             return
         }
-        
         var requisicao = URLRequest(url: apiURL)
-
+        
         if let parameters = request.parameters {
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
@@ -35,7 +33,6 @@ class NetworkOperation {
         }
         
         requisicao.httpMethod = request.method.rawValue
-        requisicao.addValue(privateKey, forHTTPHeaderField: privateKeyValue)
         
         let session = URLSession.shared
         let task = session.dataTask(with: requisicao) { (data, response, error) in

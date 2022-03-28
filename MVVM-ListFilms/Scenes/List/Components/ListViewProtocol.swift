@@ -13,6 +13,7 @@ import UIKit
 enum ListState {
     case hasData(data: TopRatedMovies)
     case hasError(message: String)
+    case isLoading(isLoading: Bool)
 }
 
 // MARK: - ViewController

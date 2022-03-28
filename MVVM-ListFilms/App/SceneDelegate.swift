@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     // MARK: - Private Functions
-
+    
     private func presentStartFlow(windowScene: UIWindowScene) {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = UINavigationController()
