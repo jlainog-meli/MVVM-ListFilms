@@ -2,6 +2,7 @@
 
 ## ScreenShots da Aplicação
 
+!<img src="https://i.ibb.co/BtcMtv5/1.png" width="282" height="531">
 ![image](https://i.ibb.co/BtcMtv5/1.png)
 ![image](https://i.ibb.co/3vNtCqk/2.png)
 ![image](https://i.ibb.co/8dNwb00/3.png)
