@@ -49,30 +49,30 @@ Como este projeto tem em sua base ao Swininject, que é um container de dependê
 
 ## Módulos da Aplicação. 
 
-**App**
+**App:**
 
 AppDelegate e Info.Plist
 
-**Foundation**
+**Foundation:**
 
 A Camada de Foudation contem como responsabilidade criar e disponibilizar para a aplicação os recursos básicos para que ela exista. 
 
 
-**DependencyInjection**
+**DependencyInjection:**
 
 Com o objetivo de remover o acoplamento de ViewModels dentro das ViewControllers, a camada de Dependency Injecton registra e resolve todas as dependencias de todas as classes da Aplicação. 
 
 
-**FlowController**
+**FlowController:**
 
 Similar a um controller de fluxo, a camada de FlowController ela chama e gerencia os fluxos da aplicação. Com a crucial diferença que a FlowController não registra nenhuma ViewController, ela apenas pede para que ela a instancia seja resolvida.
 
 
-**UIKit**
+**UIKit:**
 
 Camada de UIKit da Aplicação, onde fica todas os componentes e recursos para criação de Layouts. 
 
-**Scenes**
+**Scenes:**
 
 Todas as Scenas/Telas da aplicação.
 
