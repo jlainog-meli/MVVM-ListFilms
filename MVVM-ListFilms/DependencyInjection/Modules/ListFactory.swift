@@ -11,9 +11,11 @@ class ListFactory: ListFactoryProtocol {
     
     
     // MARK: - PRIVATE PROPERTIES
+   
     private let resolver: Resolver
     
     // MARK: - PUBLIC API
+   
     init(resolver: Resolver) {
         self.resolver = resolver
     }

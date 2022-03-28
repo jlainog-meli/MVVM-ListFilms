@@ -8,10 +8,10 @@
 import Foundation
 
 struct TopRatedMoviesResponse: Codable {
-    public let page: Int
-    public let totalResults: Int
-    public let totalPages: Int
-    public let results: [TopRatedListResults]
+    let page: Int
+    let totalResults: Int
+    let totalPages: Int
+    let results: [TopRatedListResults]
 
     enum CodingKeys: String, CodingKey {
         case page = "page"
@@ -22,13 +22,13 @@ struct TopRatedMoviesResponse: Codable {
 }
 
 struct TopRatedListResults: Codable {
-    public let popularity: Double
-    public let voteCount: Int
-    public let posterPath: String
-    public let genreIds: [Int]
-    public let title: String
-    public let overview: String
-    public let releaseDate: String
+    let popularity: Double
+    let voteCount: Int
+    let posterPath: String
+    let genreIds: [Int]
+    let title: String
+    let overview: String
+    let releaseDate: String
 
     enum CodingKeys: String, CodingKey {
         case popularity = "popularity"

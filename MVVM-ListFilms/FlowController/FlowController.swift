@@ -15,7 +15,6 @@ class FlowController {
     
     // MARK: - Public Attributes
 
-//    public weak var delegate: DashboardViewControllerDelegate?
     public weak var navigationController: UINavigationController?
 
     // MARK: - Setup

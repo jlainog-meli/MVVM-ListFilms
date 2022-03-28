@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        applyNavigationAppearances()
         presentStartFlow(windowScene: windowScene)
     }
     
@@ -35,6 +36,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             flowController?.start()
         }
         window?.makeKeyAndVisible()
+    }
+    
+    private func applyNavigationAppearances() {
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        UINavigationBar.appearance().barTintColor = .prussianBlue
+        UINavigationBar.appearance().barStyle = .black
     }
 }
 

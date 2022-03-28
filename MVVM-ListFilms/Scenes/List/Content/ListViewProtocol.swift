@@ -19,7 +19,8 @@ enum ListState {
 // MARK: - ViewController
 
 protocol ListViewViewControllerProtocol: AnyObject {
-
+    func didTapToMovie(data: TopRatedMovieList)
+    func didTapReload()
 }
 
 // MARK: - View
@@ -27,4 +28,12 @@ protocol ListViewViewControllerProtocol: AnyObject {
 protocol ListViewProtocol: UIView {
     var delegate: ListViewViewControllerProtocol? { get set }
     func setupUI(state: ListState)
+}
+
+protocol ListErrorViewDelegate: AnyObject {
+    func didTapReload()
+}
+
+protocol ListDataViewDelegate: AnyObject {
+    func didTapToMovie(data: TopRatedMovieList)
 }

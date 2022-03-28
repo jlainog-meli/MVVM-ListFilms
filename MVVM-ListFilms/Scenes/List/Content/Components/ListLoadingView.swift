@@ -9,7 +9,7 @@ import Foundation
 import Lottie
 import UIKit
 
-class ListLoadingView: UIView {
+final class ListLoadingView: UIView {
     
     // MARK: - Constants
 
@@ -30,11 +30,12 @@ class ListLoadingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         constraintUI()
+        setupConstraints()
     }
     
     // MARK: - UI
     
-    private var firstItemLottie: AnimationView = {
+    private lazy var firstItemLottie: AnimationView = {
         let lotView = LottieFactory.grayShimmer()
         lotView.translatesAutoresizingMaskIntoConstraints = false
         lotView.clipsToBounds = true
@@ -45,7 +46,7 @@ class ListLoadingView: UIView {
         return lotView
     }()
     
-    private var seccondItemLottie: AnimationView = {
+    private lazy var seccondItemLottie: AnimationView = {
         let lotView = LottieFactory.grayShimmer()
         lotView.translatesAutoresizingMaskIntoConstraints = false
         lotView.contentMode = .scaleAspectFill
@@ -56,7 +57,7 @@ class ListLoadingView: UIView {
         return lotView
     }()
     
-    private var thirtyItemLottie: AnimationView = {
+    private lazy var thirtyItemLottie: AnimationView = {
         let lotView = LottieFactory.grayShimmer()
         lotView.translatesAutoresizingMaskIntoConstraints = false
         lotView.contentMode = .scaleAspectFill
@@ -67,7 +68,7 @@ class ListLoadingView: UIView {
         return lotView
     }()
     
-    private var fourthItemLottie: AnimationView = {
+    private lazy var fourthItemLottie: AnimationView = {
         let lotView = LottieFactory.grayShimmer()
         lotView.translatesAutoresizingMaskIntoConstraints = false
         lotView.contentMode = .scaleAspectFill
@@ -78,7 +79,7 @@ class ListLoadingView: UIView {
         return lotView
     }()
     
-    private var fifthItemLottie: AnimationView = {
+    private lazy var fifthItemLottie: AnimationView = {
         let lotView = LottieFactory.grayShimmer()
         lotView.translatesAutoresizingMaskIntoConstraints = false
         lotView.contentMode = .scaleAspectFill
@@ -89,7 +90,7 @@ class ListLoadingView: UIView {
         return lotView
     }()
     
-    private var sixthItemLottie: AnimationView = {
+    private lazy var sixthItemLottie: AnimationView = {
         let lotView = LottieFactory.grayShimmer()
         lotView.translatesAutoresizingMaskIntoConstraints = false
         lotView.contentMode = .scaleAspectFill
@@ -110,6 +111,9 @@ class ListLoadingView: UIView {
         addSubview(fifthItemLottie)
         addSubview(sixthItemLottie)
 
+    }
+    
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             firstItemLottie.topAnchor.constraint(equalTo: topAnchor, constant: Metrics.contentSpace),
             firstItemLottie.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.contentSpace),

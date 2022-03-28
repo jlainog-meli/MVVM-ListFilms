@@ -70,5 +70,11 @@ extension ListViewController: ListViewControllerProtocol {
 }
 
 extension ListViewController: ListViewViewControllerProtocol {
-
+    func didTapReload() {
+        viewModelProtocol.viewDidLoad()
+    }
+    
+    func didTapToMovie(data: TopRatedMovieList) {
+        flowProtocol?.goToDetail(with: data)
+    }
 }
