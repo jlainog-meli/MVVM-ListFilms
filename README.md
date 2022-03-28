@@ -2,10 +2,10 @@
 
 ## ScreenShots da Aplicação
 
-![image](https://ibb.co/CzmGz43)
-![image](https://ibb.co/VxSXqZ3)
-![image](https://ibb.co/QCpVkff)
-![image](https://ibb.co/yprnqxD)
+![image](https://i.ibb.co/BtcMtv5/1.png)
+![image](https://i.ibb.co/3vNtCqk/2.png)
+![image](https://i.ibb.co/8dNwb00/3.png)
+![image](https://i.ibb.co/C6f5QSq/4.png)
 
 
 ## Base Arquitetural
@@ -15,21 +15,37 @@ Este projeto utiliza como base arquitetural MVVM.
 
 ![image](https://benoitpasquier.com/images/2018/01/mvvm-pattern.png)
 
-Na implementação da MVVM deste projeto o Fluxo se inicia sempre Quando uma camada provedora de dados é injetada em uma viewModel. 
+Aonde cada camada da arquitetura tem sua responsabilidade definida. 
 
-(Os Fluxos podem receber dados pela camada de Networking ou pela Camada de Persistencia de dados.)
+**UseCases**
 
-Logo em seguida, com os dados injetados a ViewModel, trabalha os dados e entrega para a ViewController para ser exibida. 
+* São formas de consultar dados externos a Scena, seja em API, Banco de dados e etc
 
-**Um ponto importante a se notar:**
+**ViewModel**
 
-Como o projeto trabalha com Injeções de dependencias para não fazer acoplamento de classes fortes dentro do projeto, ViewControllers não trocam dados diretamente entre si. Caso um dado precise ser persistido e entregue para outra tela, o dado é entregue a ViewModel e a ViewModel entrega para a camada de persistencia de dados. 
+*\** Única camada com a responsabilidade de conhecer os UseCases. 
+* Transforma os Responses recebidos em models, tratando os dados
+* Contém as regras de negócio 
+* Encaminha os dados para a ViewController
+
+**ViewController**
+
+* Única camada que conhece a View, ViewModel e FlowController. 
+* Ela tem como característica ser uma camada de passagens gerenciando o fluxo de informação dentro da scena. 
+
+**View**
+
+* Camada que contém as regras de Layout. 
 
 **Beneficios da arquitetura:**
 
 Como a proposta dessa arquitetura era que cada camada tivesse uma função bem definida. a implementação de testes será facilitada e a manutenção da arquitetura também. 
 
 Uma vez que cada módulo espera apenas um resultado para ser carregado. eu posso por exemplo trocar a forma que a camada de networking faz chamadas HTTPS com o minimo de impacto dentro das viewmodels, posso trocar a persistencia de dados, retornar mocks para fazer testes e etc. Tudo isso com o minimo de esforço.
+
+**Malefícios da arquitetura:**
+
+Como este projeto tem em sua base ao Swininject, que é um container de dependências registrado no inicializador da aplicação, significa que, caso eu precise trocar dentro deste container quem resolve protocolo x ou y eu não irei conseguir sem reiniciar a aplicação. 
 
 ## Módulos da Aplicação. 
 
@@ -62,9 +78,11 @@ Todas as Scenas/Telas da aplicação.
 
 ## Debitos Técnicos
 
-**1 -** Implementação da paginação na lista de filmes.
+**1 -** Implementar a paginação na lista de filmes.
 
-**1 -** Implementação do uso dos parameters entregue pelos Requests à camada de Network.
+**2 -** Implementar o uso dos parameters entregue pelos Requests à camada de Network.
+
+**3 -** Implementar o Cache de Imagens. 
 
 ## Pods Instalados:
 ```  
