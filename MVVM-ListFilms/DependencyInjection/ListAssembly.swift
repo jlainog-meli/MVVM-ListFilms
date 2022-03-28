@@ -27,7 +27,7 @@ class ListAssembly: Assembly {
         // MARK: - List
         
         container.register(ListViewProtocol.self) { resolver in
-            return ListView()
+            ListView()
         }
         
         container.register(ListViewModelProtocol.self) { resolver in
@@ -41,6 +41,27 @@ class ListAssembly: Assembly {
             let view = resolver.resolve(ListViewProtocol.self)!
             var viewModel = resolver.resolve(ListViewModelProtocol.self)!
             let viewController = ListViewController(
+                viewProtocol: view,
+                viewModelProtocol: viewModel)
+            
+            viewModel.viewController = viewController
+            return viewController
+        }
+        
+        // MARK: - Detail
+
+        container.register(DetailViewProtocol.self) { resolver in
+            return DetailView()
+        }
+        
+        container.register(DetailViewModelProtocol.self) { (resolver: Resolver, data: TopRatedMovieList) in
+            return DetailViewModel(data: data)
+        }
+        
+        container.register(DetailViewController.self) { resolver in
+            let view = resolver.resolve(DetailViewProtocol.self)!
+            var viewModel = resolver.resolve(DetailViewModelProtocol.self)!
+            let viewController = DetailViewController(
                 viewProtocol: view,
                 viewModelProtocol: viewModel)
             

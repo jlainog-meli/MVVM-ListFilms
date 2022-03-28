@@ -7,5 +7,6 @@
 
 protocol ListFactoryProtocol {
     func makeListViewController() -> ListViewController
+    func makeDetailViewController() -> DetailViewController
 }
 

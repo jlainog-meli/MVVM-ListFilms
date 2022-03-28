@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  DetailViewController.swift
 //  MVVM-ListFilms
 //
 //  Created by Lucas De Castro Carvalho on 28/03/22.
@@ -8,28 +8,28 @@
 import Foundation
 import UIKit
 
-class ListViewController: UIViewController {
+final class DetailViewController: UIViewController {
         
     // MARK: - Constants
 
     private enum Constants {
-        static let title: String = "Lista de filmes"
+        static let title: String = "Detalhe do filme"
     }
     
     // MARK: - Private Attributes
 
-    private let viewProtocol: ListViewProtocol
-    private let viewModelProtocol: ListViewModelProtocol
+    private let viewProtocol: DetailViewProtocol
+    private let viewModelProtocol: DetailViewModelProtocol
 
     // MARK: - Public Attributes
 
-    public var flowProtocol: ListViewFlowProtocol?
+    public weak var flowProtocol: DetailViewFlowProtocol?
     
     // MARK: - Setup
 
     init(
-        viewProtocol: ListViewProtocol,
-        viewModelProtocol: ListViewModelProtocol
+        viewProtocol: DetailViewProtocol,
+        viewModelProtocol: DetailViewModelProtocol
     ) {
         self.viewProtocol = viewProtocol
         self.viewModelProtocol = viewModelProtocol
@@ -63,18 +63,10 @@ class ListViewController: UIViewController {
 
 // MARK: - Extensions
 
-extension ListViewController: ListViewControllerProtocol {
-    func setupUI(state: ListState) {
+extension DetailViewController: DetailViewControllerProtocol {
+    func setupUI(state: DetailState) {
         viewProtocol.setupUI(state: state)
     }
 }
 
-extension ListViewController: ListViewViewControllerProtocol {
-    func didTapReload() {
-        viewModelProtocol.viewDidLoad()
-    }
-    
-    func didTapToMovie(data: TopRatedMovieList) {
-        flowProtocol?.goToDetail(with: data)
-    }
-}
+extension DetailViewController: DetailViewViewControllerProtocol { }

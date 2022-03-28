@@ -23,4 +23,8 @@ class ListFactory: ListFactoryProtocol {
     func makeListViewController() -> ListViewController {
         return resolver.resolve(ListViewController.self)!
     }
+    
+    func makeDetailViewController() -> DetailViewController {
+        return resolver.resolve(DetailViewController.self)!
+    }
 }
