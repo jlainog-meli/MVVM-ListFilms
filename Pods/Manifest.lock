@@ -1,0 +1,20 @@
+PODS:
+  - IQKeyboardManager (6.5.9)
+  - Swinject (2.8.1)
+
+DEPENDENCIES:
+  - IQKeyboardManager
+  - Swinject
+
+SPEC REPOS:
+  trunk:
+    - IQKeyboardManager
+    - Swinject
+
+SPEC CHECKSUMS:
+  IQKeyboardManager: 241cc94ccabc9deb8f8bd7d12f00d73288d13ecc
+  Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
+
+PODFILE CHECKSUM: 2c0dbf4e007806f141bf347e9d7ca0b007c7097b
+
+COCOAPODS: 1.11.2
