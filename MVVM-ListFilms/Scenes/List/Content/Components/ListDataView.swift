@@ -62,7 +62,6 @@ final class ListDataView: UIView {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(ListDataViewCell.self, forCellReuseIdentifier: ListDataViewCell.className)
-        tableView.estimatedRowHeight = Metrics.cellHeight
         tableView.showsHorizontalScrollIndicator = false
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
@@ -87,7 +86,16 @@ final class ListDataView: UIView {
     // MARK: - Actions
     
     @objc private func textFieldDidChange(textField: UITextField) {
-    
+        guard !(textField.text?.isEmpty ?? true) else {
+            filteredFilms = item
+            itemsTableView.reloadData()
+            return
+        }
+        
+        let searchText = textField.text!.lowercased()
+        let filtered = item.filter { $0.title.lowercased().contains(searchText) }
+        filteredFilms = filtered
+        itemsTableView.reloadData()
     }
     
     // MARK: - Setup
@@ -109,10 +117,10 @@ final class ListDataView: UIView {
             lineSeparatorView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: Metrics.componentesSpace),
             lineSeparatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             lineSeparatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            lineSeparatorView.heightAnchor.constraint(equalToConstant: Metrics.lineSeparatorViewHeight),
             
             separatorLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.separatorLineSpace),
-            separatorLabel.centerYAnchor.constraint(equalTo: lineSeparatorView.centerYAnchor),
+            separatorLabel.topAnchor.constraint(equalTo: lineSeparatorView.topAnchor, constant: Metrics.separatorLineSpace),
+            separatorLabel.bottomAnchor.constraint(equalTo: lineSeparatorView.bottomAnchor, constant: -Metrics.separatorLineSpace),
             
             itemsTableView.topAnchor.constraint(equalTo: separatorLabel.bottomAnchor),
             itemsTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -136,6 +144,10 @@ extension ListDataView: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.didTapToMovie(data: filteredFilms[indexPath.row])
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 extension ListDataView: UITableViewDataSource {
@@ -150,5 +162,13 @@ extension ListDataView: UITableViewDataSource {
         }
         cell.setupUI(data: filteredFilms[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView(frame: CGRect(x: 0, y: 0, width: itemsTableView.frame.size.width, height: 0.01))
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: CGRect(x: 0, y: 0, width: itemsTableView.frame.size.width, height: 0.01))
     }
 }

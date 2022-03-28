@@ -10,8 +10,9 @@ import UIKit
 public class SearchTextField: UITextField {
     
     // MARK: - Constants
+    
     private struct Constants {
-        static let defaultPlaceholder = NSLocalizedString("Pesquisar", comment: "")
+        static let defaultPlaceholder: String = "Pesquisar"
     }
     
     public struct Metrics {
@@ -20,7 +21,8 @@ public class SearchTextField: UITextField {
         static let imageSize: CGFloat = 24.0
     }
     
-    // MARK: - PUBLIC API
+    // MARK: - Public Attributes
+
     public override var placeholder: String? {
         didSet {
             guard let placeholder = placeholder else { return }
@@ -28,7 +30,8 @@ public class SearchTextField: UITextField {
             attributedPlaceholder = NSAttributedString(string: placeholder, attributes: placeHolderColorAttr)
         }
     }
-    
+    // MARK: - Initializers
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -43,6 +46,8 @@ public class SearchTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Setup
+
     private func setup() {
         clearButtonMode = .always
         backgroundColor = .solitude
@@ -54,12 +59,6 @@ public class SearchTextField: UITextField {
         layer.masksToBounds = true
         layer.cornerRadius = Metrics.cornerRadius
         
-        leftViewMode = .always
-        let imgView = UIImageView(image: .magnifyingGlassIcon)
-        if let size = imgView.image?.size {
-            imgView.frame = CGRect(x: 0.0, y: 0.0, width: size.width + Metrics.imageSize, height: size.height)
-        }
-        imgView.contentMode = .center
-        leftView = imgView
+        setLeftView(image: .magnifyingGlassIcon)
     }
 }
