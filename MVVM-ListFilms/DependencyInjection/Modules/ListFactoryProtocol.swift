@@ -9,7 +9,6 @@ import Foundation
 import Foundation
 
 protocol ListFactoryProtocol {
-//    func makeDashboardViewController() -> DashboardViewController
-//    func makeDetailViewController() -> DetailViewController
+    func makeListViewController() -> ListViewController
 }
 

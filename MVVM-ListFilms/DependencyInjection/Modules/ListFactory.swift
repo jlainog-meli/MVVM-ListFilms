@@ -9,6 +9,7 @@ import Swinject
 
 class ListFactory: ListFactoryProtocol {
     
+    
     // MARK: - PRIVATE PROPERTIES
     private let resolver: Resolver
     
@@ -17,11 +18,7 @@ class ListFactory: ListFactoryProtocol {
         self.resolver = resolver
     }
     
-//    func makeDashboardViewController() -> DashboardViewController {
-//        return resolver.resolve(DashboardViewController.self)!
-//    }
-//    
-//    func makeDetailViewController() -> DetailViewController {
-//        return resolver.resolve(DetailViewController.self)!
-//    }
+    func makeListViewController() -> ListViewController {
+        return resolver.resolve(ListViewController.self)!
+    }
 }

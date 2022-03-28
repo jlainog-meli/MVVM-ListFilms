@@ -30,6 +30,12 @@
 		79E82A4927F1633A0006A5CE /* TopRatedMoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A4827F1633A0006A5CE /* TopRatedMoviesResponse.swift */; };
 		79E82A4B27F163480006A5CE /* GenreMovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A4A27F163480006A5CE /* GenreMovieResponse.swift */; };
 		79E82A4D27F169AA0006A5CE /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A4C27F169AA0006A5CE /* FlowController.swift */; };
+		79E82A4F27F170160006A5CE /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A4E27F170160006A5CE /* ListViewController.swift */; };
+		79E82A5127F1702A0006A5CE /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A5027F1702A0006A5CE /* ListViewModel.swift */; };
+		79E82A5327F170350006A5CE /* ListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A5227F170350006A5CE /* ListProtocol.swift */; };
+		79E82A5627F1704A0006A5CE /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A5527F1704A0006A5CE /* ListView.swift */; };
+		79E82A5827F170750006A5CE /* ListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A5727F170750006A5CE /* ListViewProtocol.swift */; };
+		79E82A5A27F172A40006A5CE /* TopRatedMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E82A5927F172A40006A5CE /* TopRatedMovies.swift */; };
 		D15578C7453D1055256671BF /* Pods_MVVM_ListFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9102281B24E289E428C245 /* Pods_MVVM_ListFilms.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +86,12 @@
 		79E82A4827F1633A0006A5CE /* TopRatedMoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedMoviesResponse.swift; sourceTree = "<group>"; };
 		79E82A4A27F163480006A5CE /* GenreMovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreMovieResponse.swift; sourceTree = "<group>"; };
 		79E82A4C27F169AA0006A5CE /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		79E82A4E27F170160006A5CE /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		79E82A5027F1702A0006A5CE /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		79E82A5227F170350006A5CE /* ListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProtocol.swift; sourceTree = "<group>"; };
+		79E82A5527F1704A0006A5CE /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		79E82A5727F170750006A5CE /* ListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewProtocol.swift; sourceTree = "<group>"; };
+		79E82A5927F172A40006A5CE /* TopRatedMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedMovies.swift; sourceTree = "<group>"; };
 		AA0872B2F9C92E4257870C3A /* Pods-MVVM-ListFilms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-ListFilms.release.xcconfig"; path = "Target Support Files/Pods-MVVM-ListFilms/Pods-MVVM-ListFilms.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,7 +208,6 @@
 			children = (
 				79E82A1727F14EB40006A5CE /* Extensions */,
 				79E82A1627F14EA60006A5CE /* Colors */,
-				79E82A1527F14E9C0006A5CE /* Images */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -212,6 +223,7 @@
 		79E82A1627F14EA60006A5CE /* Colors */ = {
 			isa = PBXGroup;
 			children = (
+				79E82A1527F14E9C0006A5CE /* Images */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -254,6 +266,10 @@
 		79E82A1B27F1544D0006A5CE /* List */ = {
 			isa = PBXGroup;
 			children = (
+				79E82A5427F1703D0006A5CE /* Content */,
+				79E82A4E27F170160006A5CE /* ListViewController.swift */,
+				79E82A5027F1702A0006A5CE /* ListViewModel.swift */,
+				79E82A5227F170350006A5CE /* ListProtocol.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -327,6 +343,16 @@
 				79E82A4A27F163480006A5CE /* GenreMovieResponse.swift */,
 			);
 			path = GenreMovieUseCase;
+			sourceTree = "<group>";
+		};
+		79E82A5427F1703D0006A5CE /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				79E82A5527F1704A0006A5CE /* ListView.swift */,
+				79E82A5727F170750006A5CE /* ListViewProtocol.swift */,
+				79E82A5927F172A40006A5CE /* TopRatedMovies.swift */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 		BF82527506B748CC5C23874D /* Frameworks */ = {
@@ -510,22 +536,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79E82A5827F170750006A5CE /* ListViewProtocol.swift in Sources */,
 				79E82A3327F15B760006A5CE /* NetworkingRequestsMethods.swift in Sources */,
 				79E82A4B27F163480006A5CE /* GenreMovieResponse.swift in Sources */,
 				79E82A3B27F15CEF0006A5CE /* ListRequests.swift in Sources */,
 				79E82A2527F154C00006A5CE /* ListFactory.swift in Sources */,
+				79E82A5A27F172A40006A5CE /* TopRatedMovies.swift in Sources */,
 				79E82A4727F161850006A5CE /* GenreMovieUseCaseProtocol.swift in Sources */,
 				79E82A2127F154A60006A5CE /* DependencyGraph.swift in Sources */,
 				79E82A3F27F1614A0006A5CE /* TopRatedMoviesUseCase.swift in Sources */,
+				79E82A5627F1704A0006A5CE /* ListView.swift in Sources */,
 				79E82A2727F1557D0006A5CE /* NetworkOperation.swift in Sources */,
 				79E82A3D27F15E450006A5CE /* Request.swift in Sources */,
+				79E82A5127F1702A0006A5CE /* ListViewModel.swift in Sources */,
 				79E82A2327F154B50006A5CE /* ListFactoryProtocol.swift in Sources */,
 				79E82A2B27F155B00006A5CE /* NetworkMockOperation.swift in Sources */,
 				79E82A2F27F1575A0006A5CE /* ListAssembly.swift in Sources */,
 				79E82A2D27F155D00006A5CE /* NetworkOperationError.swift in Sources */,
+				79E82A5327F170350006A5CE /* ListProtocol.swift in Sources */,
 				79E829E227F14C7F0006A5CE /* AppDelegate.swift in Sources */,
 				79E82A4D27F169AA0006A5CE /* FlowController.swift in Sources */,
 				79E82A1F27F1549B0006A5CE /* FoudationAssembly.swift in Sources */,
+				79E82A4F27F170160006A5CE /* ListViewController.swift in Sources */,
 				79E82A4527F1617B0006A5CE /* GenreMovieUseCase.swift in Sources */,
 				79E82A2927F155A40006A5CE /* NetworkOperationProtocol.swift in Sources */,
 				79E829E427F14C7F0006A5CE /* SceneDelegate.swift in Sources */,

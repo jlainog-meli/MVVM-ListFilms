@@ -29,16 +29,14 @@ class FlowController {
     // MARK: - Public Functions
 
     public func start() {
-//        let dashboardContainer = mainFactory.makeDashboardViewController()
-//        dashboardContainer.delegate = self
-//        navigationController?.setViewControllers([dashboardContainer], animated: true)
+        let viewController = factory.makeListViewController()
+        viewController.flowProtocol = self
+        navigationController?.setViewControllers([viewController], animated: true)
     }
 }
 
-//extension MainFlowController : DashboardViewControllerDelegate {
-//    public func didTapContinue(_ viewController: DashboardViewController) {
-//        let detailViewController = mainFactory.makeDetailViewController()
-//        navigationController?.setNavigationBarHidden(false, animated: true)
-//        navigationController?.pushViewController(detailViewController, animated: true)
-//    }
-//}
+extension FlowController: ListViewFlowProtocol {
+    func goToDetail(with data: TopRatedMovieList) {
+        
+    }
+}
