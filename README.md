@@ -83,6 +83,8 @@ Todas as Scenas/Telas da aplicação.
 
 **3 -** Implementar o Cache de Imagens. 
 
+**4 -** As camadas de network poderiam dividir a função de parsable de objeto, para faciltar o teste da camada. 
+
 ## Pods Instalados:
 ```  
   pod 'Swinject'

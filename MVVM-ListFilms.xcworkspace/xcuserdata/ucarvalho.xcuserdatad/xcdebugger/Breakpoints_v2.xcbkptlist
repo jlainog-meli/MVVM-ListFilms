@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CF9FD762-4647-45E5-AD5F-435B0E4AE1BC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MVVM-ListFilms/Scenes/List/ListViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "createCustomModel(response:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C3CF1421-31B3-446B-A3DF-F1D9876030DA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -55,32 +39,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1E364253-D35A-41C0-A31D-9C4067B3E812"
+            uuid = "4E9E37C6-04F0-4F03-956E-0810EEF72CC1"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MVVM-ListFilms/Scenes/List/ListViewModel.swift"
+            filePath = "MVVM-ListFilmsTests/NetworkOperationTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "callService()"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "NetworkOperationTests"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A08804A4-F77A-4721-9F1C-FC48DC802005"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MVVM-ListFilmsTests/TopRatedMoviesUseCaseTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "testTopRatedUseCaseError()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0C5E8BDD-2A03-45F2-9D5A-9A75B3AE57BA"
+            uuid = "CEB7FFA0-5E18-4E44-9998-35FFFE04AEA4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MVVM-ListFilmsTests/NetworkOperationTests.swift"
+            filePath = "MVVM-ListFilmsTests/ListViewModelTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "testNetworkParseObjectSuccessfully()"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "setupUI(state:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CEB7FFA0-5E18-4E44-9998-35FFFE04AEA4 - 81ff974838202834"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MVVM_ListFilmsTests.ListViewModelLoadingTests.setupUI(state: MVVM_ListFilms.ListState) -&gt; ()"
+                  moduleName = "MVVM-ListFilmsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ucarvalho/Developer/MVVM-ListFilm/MVVM-ListFilmsTests/ListViewModelTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "79">
+               </Location>
+               <Location
+                  uuid = "CEB7FFA0-5E18-4E44-9998-35FFFE04AEA4 - 81ff974838202627"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MVVM_ListFilmsTests.ListViewModelLoadingTests.setupUI(state: MVVM_ListFilms.ListState) -&gt; ()"
+                  moduleName = "MVVM-ListFilmsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ucarvalho/Developer/MVVM-ListFilm/MVVM-ListFilmsTests/ListViewModelTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "79">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDF1FA9D-171A-4891-B5BC-B94B64824808"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MVVM-ListFilmsTests/ListViewModelTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "setupUI(state:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

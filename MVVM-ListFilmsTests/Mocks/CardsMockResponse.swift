@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct CardsVIPExampleReponse: Decodable {
-    var cards: [CardsVIPExampleListReponse]
+struct CardsMockResponse: Codable {
+    let cards: [CardsMockListResponse]
 }
 
-struct CardsVIPExampleListReponse: Decodable {
-    var id: Int
-    var productId: Int
-    var type: String
-    var title: String?
-    var number: String?
+struct CardsMockListResponse: Codable {
+    let id: Int
+    let productId: Int
+    let type: String
+    let title: String?
+    let number: String?
 }

@@ -8,16 +8,29 @@
 import Foundation
 
 class NetworkOperation {
-    
+
     // MARK: - Private Attributes
 
     private let baseURL: String = "https://api.themoviedb.org/3/"
     private let privateKey: String = "?api_key=bcd6c2c21e1e75b74d1e2d38ddc9fe0b"
+    private let mockURL: String?
 
+    // MARK: - Setup
+
+    init(mockURL: String? = nil) {
+        self.mockURL = mockURL
+    }
+    
     // MARK: - Private Functions
 
     private func callNetwork<T: Decodable>(request: RequestProtocol, completion: @escaping (Result<T, NetworkOperationError>) -> Void) {
-        guard let apiURL = URL(string: baseURL + request.path + privateKey) else {
+        var apiStringURL = baseURL + request.path + privateKey
+        
+        if let url = mockURL {
+            apiStringURL = url
+        }
+        
+        guard let apiURL = URL(string: apiStringURL) else {
             completion(.failure(.noURL))
             return
         }

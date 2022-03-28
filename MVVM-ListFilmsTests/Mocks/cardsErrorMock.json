@@ -6,7 +6,6 @@
         "title": "Visa",
     },
     {
-        "id": 2,
         "productId": 2,
         "type": "credit_card",
         "title": "Mastercard",
@@ -21,6 +20,7 @@
         "id": 4,
         "productId": 4,
         "type": "mercado_pago",
+        "title": "Mercado Pago"
     },
     {
         "id": 5,
