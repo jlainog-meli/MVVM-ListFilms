@@ -12,8 +12,8 @@ class FoudationAssembly: Assembly {
         
         // MARK: - Factory
         
-        container.register(ListFactory.self) { resolver in
-            return ListFactoryImplementation(resolver: resolver)
+        container.register(ListFactoryProtocol.self) { resolver in
+            return ListFactory(resolver: resolver)
         }
         
         // MARK: - NetworkOperation
@@ -22,5 +22,11 @@ class FoudationAssembly: Assembly {
             return NetworkOperation()
         }
         
+        // MARK: - FlowController
+        
+        container.register(FlowController.self) { (resolver: Resolver, navigationController: UINavigationController) in
+            let listFactory = resolver.resolve(ListFactoryProtocol.self)!
+            return FlowController(navigationController: navigationController, factory: listFactory)
+        }
     }
 }
