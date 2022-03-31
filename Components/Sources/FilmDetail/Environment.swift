@@ -18,25 +18,20 @@ public func setEnvironment(_ env: Environment) {
 
 public struct Environment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
-    var getTopRatedMovies: (_ completion: @escaping (Result<MoviesList, MovieError>) -> Void) -> Void
     
     public init(
-        mainQueue: AnySchedulerOf<DispatchQueue> = .main,
-        getTopRatedMovies: @escaping (_ completion: @escaping (Result<MoviesList, MovieError>) -> Void) -> Void
+        mainQueue: AnySchedulerOf<DispatchQueue> = .main
     ) {
         self.mainQueue = mainQueue
-        self.getTopRatedMovies = getTopRatedMovies
     }
 }
 
 import XCTestDynamicOverlay
 extension Environment {
     static var noop = Self(
-        mainQueue: .immediate,
-        getTopRatedMovies: { _ in }
+        mainQueue: .immediate
     )
     static var failing = Self(
-        mainQueue: .failing,
-        getTopRatedMovies: { _ in XCTFail(#function) }
+        mainQueue: .failing
     )
 }

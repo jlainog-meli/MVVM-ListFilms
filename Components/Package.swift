@@ -20,6 +20,11 @@ let package = Package(
         ),
         
         .library(
+            name: "FilmDetail",
+            targets: ["ListFilms"]
+        ),
+        
+        .library(
             name: "FilmsModels",
             targets: ["FilmsModels"]
         ),
@@ -60,6 +65,18 @@ let package = Package(
             dependencies: ["ListFilms"]
         ),
         
+        .target(
+            name: "FilmDetail",
+            dependencies: [
+                "FilmsModels", "Helpers", "UIComponents",
+                .product(name: "CombineSchedulers", package: "combine-schedulers"),
+            ]
+        ),
+        .testTarget(
+            name: "FilmDetailTests",
+            dependencies: ["FilmDetail"]
+        ),
+        
         .target(name: "FilmsModels"),
         
         .target(
@@ -69,9 +86,7 @@ let package = Package(
             ],
             resources: [.process("Resources")]
         ),
-        .target(
-            name: "Helpers",
-            dependencies: []
-        ),
+        
+        .target(name: "Helpers"),
     ]
 )
