@@ -56,6 +56,7 @@ class NetworkOperation {
             
             do {
                 let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let decoded = try decoder.decode(T.self, from: jsonData)
                 completion(.success(decoded))
             } catch {

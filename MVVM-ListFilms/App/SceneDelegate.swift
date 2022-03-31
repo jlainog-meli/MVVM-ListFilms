@@ -8,6 +8,9 @@
 import UIKit
 import Swinject
 
+import FilmsModels
+import ListFilms
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // MARK: - Internal Attributes
@@ -23,18 +26,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         applyNavigationAppearances()
+        setEnvironment()
         presentStartFlow(windowScene: windowScene)
     }
     
     // MARK: - Private Functions
     
+    func setEnvironment() {
+        ListFilms.setEnvironment(.live)
+//        ListFilms.setEnvironment(.delayedFail)
+    }
+    
     private func presentStartFlow(windowScene: UIWindowScene) {
+        let navigationController = UINavigationController()
+        let vc = ListFilms.ListViewController(
+            viewModel: ListFilms.ListViewModel(
+                state: ListFilms.ListState.isLoading(isLoading: true)
+            )
+        )
+        navigationController.setViewControllers([vc], animated: false)
+        
+//        let flowController = assembler.resolver.resolve(FlowController.self, argument: navigationController)
+//        flowController?.start()
+        
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController()
-        if let navigationController = window?.rootViewController as? UINavigationController {
-            let flowController = assembler.resolver.resolve(FlowController.self, argument: navigationController)
-            flowController?.start()
-        }
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
     
@@ -54,3 +70,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+extension ListFilms.Environment {
+    static let live = Self(
+        mainQueue: .main,
+        getTopRatedMovies: { callback in
+            NetworkOperation().fetchNetwork(request: ListRequests.getTopRatedMovies) { (result: Result<MoviesList, NetworkOperationError>) in
+                callback(result.mapError(MovieError.init))
+            }
+        }
+    )
+    
+    static let delayedFail = Self(
+        mainQueue: .immediate,
+        getTopRatedMovies: { callback in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                callback(.failure(.init(NetworkOperationError.noURL)))
+            }
+        }
+    )
+}
