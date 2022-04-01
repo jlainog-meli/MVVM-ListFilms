@@ -8,8 +8,8 @@
 import UIKit
 import Swinject
 
+import App
 import FilmsModels
-import ListFilms
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -26,29 +26,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         applyNavigationAppearances()
-        setEnvironment()
         presentStartFlow(windowScene: windowScene)
     }
     
     // MARK: - Private Functions
-    
-    func setEnvironment() {
-        ListFilms.setEnvironment(.live)
-//        ListFilms.setEnvironment(.delayedFail)
-    }
-    
     private func presentStartFlow(windowScene: UIWindowScene) {
-        let navigationController = UINavigationController()
-        let vc = ListFilms.ListViewController(
-            viewModel: ListFilms.ListViewModel(
-                state: ListFilms.ListState.isLoading(isLoading: true)
-            )
-        )
-        navigationController.setViewControllers([vc], animated: false)
-        
+//        let navigationController = UINavigationController()
 //        let flowController = assembler.resolver.resolve(FlowController.self, argument: navigationController)
 //        flowController?.start()
-        
+
+        App.setEnvironment(.live)
+        let navigationController = App.buildInitialViewController(
+            state: .hasData(data: .mock),
+            route: .detail(.deadpool)
+        )
+
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
@@ -70,7 +62,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
-extension ListFilms.Environment {
+extension App.Environment {
     static let live = Self(
         mainQueue: .main,
         getTopRatedMovies: { callback in

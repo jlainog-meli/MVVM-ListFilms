@@ -46,7 +46,7 @@ let package = Package(
     targets: [
         .target(
             name: "App",
-            dependencies: []
+            dependencies: ["ListFilms", "FilmDetail"]
         ),
         .testTarget(
             name: "AppTests",
@@ -58,6 +58,8 @@ let package = Package(
             dependencies: [
                 "FilmsModels", "Helpers", "UIComponents",
                 .product(name: "CombineSchedulers", package: "combine-schedulers"),
+                
+                "FilmDetail" // Optional according to design
             ]
         ),
         .testTarget(

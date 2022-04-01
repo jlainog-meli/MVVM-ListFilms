@@ -1,21 +1,36 @@
 import FilmsModels
 
-public enum ListState {
+public enum ListState: Equatable {
     case hasData(data: MoviesList)
     case hasError(message: String)
     case isLoading(isLoading: Bool)
     case idle
 }
 
+public enum ListRoute {
+    case detail(Movie)
+}
+
 public final class ListViewModel {
     // MARK: - Public Attributes
-    var state: ListState = .idle {
+    private(set) var state: ListState {
         didSet { stateDidChange?(state) }
     }
     var stateDidChange: ((ListState) -> Void)?
     
-    public init(state: ListState) {
+    private(set) var route: ListRoute? {
+        didSet { routeDidChange?(route) }
+    }
+    var routeDidChange: ((ListRoute?) -> Void)?
+    
+    public init(state: ListState = .idle, route: ListRoute? = nil) {
         self.state = state
+        self.route = route
+    }
+    
+    func viewDidLoad() {
+        guard state == .idle else { return }
+        fetchMovies()
     }
     
     func fetchMovies() {
@@ -31,10 +46,12 @@ public final class ListViewModel {
             }
         }
     }
-}
-
-// MARK: - Constants
-
-private enum Constants {
-    static let posterPath: String = "https://image.tmdb.org/t/p/w500"
+    
+    func goToDetail(with movie: Movie) {
+        route = .detail(movie)
+    }
+    
+    func dismissDetail() {
+        route = nil
+    }
 }

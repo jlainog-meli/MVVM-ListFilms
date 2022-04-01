@@ -9,7 +9,7 @@ public struct MovieError: Error, LocalizedError {
     }
 }
 
-public struct MoviesList: Codable {
+public struct MoviesList: Codable, Equatable {
     public init(page: Int, totalResults: Int, totalPages: Int, results: [Movie]) {
         self.page = page
         self.totalResults = totalResults
@@ -23,16 +23,18 @@ public struct MoviesList: Codable {
     public let results: [Movie]
 }
 
+#if DEBUG
 extension MoviesList {
-    static var mock = Self(
+    public static var mock = Self(
         page: 0,
         totalResults: 1,
         totalPages: 1,
         results: [.deadpool]
     )
 }
+#endif
 
-public struct Movie: Codable {
+public struct Movie: Codable, Equatable {
     public init(popularity: Double, voteCount: Int, posterPath: String, genreIds: [Int], title: String, overview: String, releaseDate: String) {
         self.popularity = popularity
         self.voteCount = voteCount
@@ -52,8 +54,9 @@ public struct Movie: Codable {
     public let releaseDate: String
 }
 
+#if DEBUG
 extension Movie {
-    static let deadpool = Self(
+    public static let deadpool = Self(
         popularity: 1,
         voteCount: 1,
         posterPath: "",
@@ -63,6 +66,7 @@ extension Movie {
         releaseDate: ""
     )
 }
+#endif
 
 extension Movie {
     public var posterURL: String { Constants.posterPath + self.posterPath }

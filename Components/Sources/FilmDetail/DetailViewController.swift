@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-final class DetailViewController: UIViewController {
+public final class DetailViewController: UIViewController {
         
     // MARK: - Constants
 
@@ -20,7 +20,7 @@ final class DetailViewController: UIViewController {
     
     // MARK: - Setup
 
-    init(viewModel: DetailViewModel) {
+    public init(viewModel: DetailViewModel) {
         self.detailView = .init(frame: .zero)
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -30,13 +30,13 @@ final class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadView() {
+    public override func loadView() {
         self.view = detailView
     }
     
     // MARK: - LifeCycle
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         title = Constants.title
         detailView.setupUI(state: viewModel.movie)

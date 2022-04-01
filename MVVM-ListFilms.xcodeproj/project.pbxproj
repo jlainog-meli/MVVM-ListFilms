@@ -69,6 +69,7 @@
 		A03CE5D927F54E95008426A6 /* ListFilms in Frameworks */ = {isa = PBXBuildFile; productRef = A03CE5D827F54E95008426A6 /* ListFilms */; };
 		A03CE5DB27F54E95008426A6 /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = A03CE5DA27F54E95008426A6 /* UIComponents */; };
 		A03CE5DD27F55AE5008426A6 /* FilmsModels in Frameworks */ = {isa = PBXBuildFile; productRef = A03CE5DC27F55AE5008426A6 /* FilmsModels */; };
+		A03CE5DF27F5D4EB008426A6 /* FilmDetail in Frameworks */ = {isa = PBXBuildFile; productRef = A03CE5DE27F5D4EB008426A6 /* FilmDetail */; };
 		D15578C7453D1055256671BF /* Pods_MVVM_ListFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9102281B24E289E428C245 /* Pods_MVVM_ListFilms.framework */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +166,7 @@
 				A03CE5D527F54E95008426A6 /* App in Frameworks */,
 				D15578C7453D1055256671BF /* Pods_MVVM_ListFilms.framework in Frameworks */,
 				A03CE5DD27F55AE5008426A6 /* FilmsModels in Frameworks */,
+				A03CE5DF27F5D4EB008426A6 /* FilmDetail in Frameworks */,
 				A03CE5DB27F54E95008426A6 /* UIComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,6 +537,7 @@
 				A03CE5D827F54E95008426A6 /* ListFilms */,
 				A03CE5DA27F54E95008426A6 /* UIComponents */,
 				A03CE5DC27F55AE5008426A6 /* FilmsModels */,
+				A03CE5DE27F5D4EB008426A6 /* FilmDetail */,
 			);
 			productName = "MVVM-ListFilms";
 			productReference = 79E829DE27F14C7F0006A5CE /* MVVM-ListFilms.app */;
@@ -1006,6 +1009,10 @@
 		A03CE5DC27F55AE5008426A6 /* FilmsModels */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FilmsModels;
+		};
+		A03CE5DE27F5D4EB008426A6 /* FilmDetail */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FilmDetail;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

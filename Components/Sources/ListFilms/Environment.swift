@@ -1,14 +1,15 @@
 import CombineSchedulers
 import FilmsModels
+import UIKit // Optional according to design
 
 #if DEBUG
-var environment = Environment.noop
+var environment: Environment = .failing
 
 public func setEnvironment(_ env: Environment) {
     environment = env
 }
 #else
-private var _environment: Environment
+private var _environment: Environment = .failing
 var environment: Environment { _environment }
 
 public func setEnvironment(_ env: Environment) {
@@ -27,6 +28,8 @@ public struct Environment {
         self.mainQueue = mainQueue
         self.getTopRatedMovies = getTopRatedMovies
     }
+    
+    public var buildMovieDetail: ((Movie) -> UIViewController)? // Optional according to design
 }
 
 import XCTestDynamicOverlay

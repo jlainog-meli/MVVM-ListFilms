@@ -2,6 +2,8 @@ import Foundation
 import UIKit
 import FilmsModels
 
+import FilmDetail // Optional according to design
+
 public final class ListViewController: UIViewController {
         
     // MARK: - Constants
@@ -15,10 +17,6 @@ public final class ListViewController: UIViewController {
     let viewModel: ListViewModel
     let listView: ListView
 
-    // MARK: - Public Attributes
-
-//    public var flowProtocol: ListViewFlowProtocol?
-    
     // MARK: - Setup
 
     public init(viewModel: ListViewModel) {
@@ -39,18 +37,62 @@ public final class ListViewController: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        title = Constants.title
         
-        // MARK: Bindings
+        // MARK: View creation + Configuration
+        title = Constants.title
+        self.navigationController?.delegate = self
+        
+        // MARK: View model bindings
         viewModel.stateDidChange = { [weak self] in
             self?.listView.setupUI(state: $0)
         }
+        listView.setupUI(state: viewModel.state)
         
+        let navigateToRoute = self.navigateToRoute()
+        viewModel.routeDidChange = navigateToRoute
+        viewModel.route.flatMap(navigateToRoute)
+        
+        // MARK: UI actions
         listView.didTapReload = { [weak self] in self?.viewModel.fetchMovies() }
-        listView.didTapMovie = { [weak self] _ in /* flowProtocol?.goToDetail(with: data) */ }
+        listView.didTapMovie = { [weak self] in self?.viewModel.goToDetail(with: $0) }
         
         // MARK: -
-        viewModel.fetchMovies()
+        viewModel.viewDidLoad()
+    }
+}
+
+extension ListViewController {
+    private func navigateToRoute() -> ((ListRoute?) -> Void) {
+        var presentedViewController: UIViewController?
+        return { [weak self] in
+            switch $0 {
+            case .none:
+                guard let vc = presentedViewController
+                else { return }
+                
+                if self?.navigationController?.viewControllers.contains(vc) == true {
+                    self?.navigationController?.popToViewController(vc, animated: true)
+                    self?.navigationController?.popViewController(animated: true)
+                } else {
+                    vc.dismiss(animated: true)
+                }
+                presentedViewController = nil
+            case .detail(let movie):
+                // Optional according to design
+//                let vc = environment.buildMovieDetail!(movie)
+                let vc = DetailViewController(viewModel: .init(movie: movie))
+                self?.navigationController?.pushViewController(vc, animated: true)
+                presentedViewController = vc
+            }
+        }
+    }
+}
+
+extension ListViewController: UINavigationControllerDelegate {
+    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        if viewController === self {
+            viewModel.dismissDetail()
+        }
     }
 }
 

@@ -2,13 +2,13 @@ import CombineSchedulers
 import FilmsModels
 
 #if DEBUG
-var environment = Environment.noop
+var environment: Environment = .failing
 
 public func setEnvironment(_ env: Environment) {
     environment = env
 }
 #else
-private var _environment: Environment
+private var _environment: Environment = .failing
 var environment: Environment { _environment }
 
 public func setEnvironment(_ env: Environment) {
