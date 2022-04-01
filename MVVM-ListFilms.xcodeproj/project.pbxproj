@@ -70,6 +70,8 @@
 		A03CE5DB27F54E95008426A6 /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = A03CE5DA27F54E95008426A6 /* UIComponents */; };
 		A03CE5DD27F55AE5008426A6 /* FilmsModels in Frameworks */ = {isa = PBXBuildFile; productRef = A03CE5DC27F55AE5008426A6 /* FilmsModels */; };
 		A03CE5DF27F5D4EB008426A6 /* FilmDetail in Frameworks */ = {isa = PBXBuildFile; productRef = A03CE5DE27F5D4EB008426A6 /* FilmDetail */; };
+		A03CE5E827F7B03D008426A6 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03CE5E727F7B03D008426A6 /* UITests.swift */; };
+		A03CE5EA27F7B084008426A6 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A03CE5E927F7B084008426A6 /* SnapshotTesting */; };
 		D15578C7453D1055256671BF /* Pods_MVVM_ListFilms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9102281B24E289E428C245 /* Pods_MVVM_ListFilms.framework */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +154,7 @@
 		79E82AAA27F243330006A5CE /* ContactMockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMockResponse.swift; sourceTree = "<group>"; };
 		79E82AAC27F247870006A5CE /* topRatedUseCaseSuccessfullyMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topRatedUseCaseSuccessfullyMock.json; sourceTree = "<group>"; };
 		79E82AAD27F247870006A5CE /* topRatedUseCaseErrorMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topRatedUseCaseErrorMock.json; sourceTree = "<group>"; };
+		A03CE5E727F7B03D008426A6 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
 		A0D436D927F51A0600D93A16 /* Components */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Components; sourceTree = "<group>"; };
 		AA0872B2F9C92E4257870C3A /* Pods-MVVM-ListFilms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM-ListFilms.release.xcconfig"; path = "Target Support Files/Pods-MVVM-ListFilms/Pods-MVVM-ListFilms.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A03CE5EA27F7B084008426A6 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +238,7 @@
 				79E82A9827F23A910006A5CE /* NetworkOperationTests.swift */,
 				79E82A9527F23A900006A5CE /* TopRatedMoviesUseCaseTests.swift */,
 				79E82A9627F23A900006A5CE /* ListViewModelTests.swift */,
+				A03CE5E727F7B03D008426A6 /* UITests.swift */,
 			);
 			path = "MVVM-ListFilmsTests";
 			sourceTree = "<group>";
@@ -554,10 +559,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				A03CE5E627F77370008426A6 /* PBXTargetDependency */,
 				79E829F627F14C820006A5CE /* PBXTargetDependency */,
 			);
 			name = "MVVM-ListFilmsTests";
+			packageProductDependencies = (
+				A03CE5E927F7B084008426A6 /* SnapshotTesting */,
+			);
 			productName = "MVVM-ListFilmsTests";
 			productReference = 79E829F427F14C820006A5CE /* MVVM-ListFilmsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -730,6 +737,7 @@
 				79E82A9927F23A910006A5CE /* TopRatedMoviesUseCaseTests.swift in Sources */,
 				79E82AAB27F243330006A5CE /* ContactMockResponse.swift in Sources */,
 				79E82A9A27F23A910006A5CE /* ListViewModelTests.swift in Sources */,
+				A03CE5E827F7B03D008426A6 /* UITests.swift in Sources */,
 				79E82A9C27F23A910006A5CE /* NetworkOperationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -741,10 +749,6 @@
 			isa = PBXTargetDependency;
 			target = 79E829DD27F14C7F0006A5CE /* MVVM-ListFilms */;
 			targetProxy = 79E829F527F14C820006A5CE /* PBXContainerItemProxy */;
-		};
-		A03CE5E627F77370008426A6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = A03CE5E527F77370008426A6 /* SnapshotTesting */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1033,7 +1037,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = FilmDetail;
 		};
-		A03CE5E527F77370008426A6 /* SnapshotTesting */ = {
+		A03CE5E927F7B084008426A6 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A03CE5E227F76807008426A6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;
