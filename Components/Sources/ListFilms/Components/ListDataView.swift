@@ -127,7 +127,7 @@ final class ListDataView: UIView {
     
     // MARK: - Public Functions
     
-    public func setupUI(data: MoviesList) {
+    func setupUI(data: MoviesList) {
         self.item = data.results
         self.filteredFilms = data.results
         itemsTableView.reloadData()
@@ -137,7 +137,7 @@ final class ListDataView: UIView {
 // MARK: - Extensions
 
 extension ListDataView: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didTapMovie?(filteredFilms[indexPath.row])
     }
     

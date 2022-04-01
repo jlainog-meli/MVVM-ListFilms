@@ -120,7 +120,7 @@ final class ListErrorView: UIView {
     
     // MARK: - Public Functions
     
-    public func setupUI(message: String) {
+    func setupUI(message: String) {
         cotentLabel.text = message
     }
 }

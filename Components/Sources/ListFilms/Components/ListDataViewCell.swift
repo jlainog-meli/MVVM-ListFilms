@@ -154,7 +154,7 @@ final class ListDataViewCell: UITableViewCell {
     
     // MARK: - Public Functions
 
-    public func setupUI(data: Movie) {
+    func setupUI(data: Movie) {
         titleLabel.text = data.title
         genreTitle.text = Constants.genreText
         dateTitle.text = Constants.dateText

@@ -70,11 +70,8 @@ Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts 
 #endif
 
 extension Movie {
-    public var posterURL: String { Constants.posterPath + self.posterPath }
-}
-
-private enum Constants {
-    static let posterPath: String = "https://image.tmdb.org/t/p/w500"
+    // FIXME: ideally the models should not know anything of this base URL
+    public var posterURL: String { "https://image.tmdb.org/t/p/w500" + self.posterPath }
 }
 
 public struct Genre: Codable, Equatable {

@@ -1,9 +1,14 @@
 import UIKit
 import ListFilms
 
+public func buildInitialViewController() -> UIViewController {
+    buildInitialViewController(state: .idle, route: nil)
+}
+
+#if DEBUG
 public func buildInitialViewController(
-    state: ListState = .idle,
-    route: ListRoute? = nil
+    state: ListState,
+    route: ListRoute?
 ) -> UIViewController {
     buildInitialViewController(
         viewModel: ListViewModel(
@@ -12,6 +17,7 @@ public func buildInitialViewController(
         )
     )
 }
+#endif
 
 internal func buildInitialViewController(
     viewModel: ListViewModel
