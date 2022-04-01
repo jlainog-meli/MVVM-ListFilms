@@ -40,6 +40,6 @@ extension Environment {
     )
     static var failing = Self(
         mainQueue: .failing,
-        getTopRatedMovies: { _ in XCTFail(#function) }
+        getTopRatedMovies: { _ in XCTFail("Unimplemented getTopRatedMovies") }
     )
 }

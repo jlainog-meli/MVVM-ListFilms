@@ -18,7 +18,8 @@ final class ListViewModelTests: XCTestCase {
     }
     
     func testListViewModelHasData() throws {
-        environment = .noop
+        environment = .failing
+        environment.mainQueue = .immediate
         environment.getTopRatedMovies = { $0(.success(.mock)) }
         
         // Given

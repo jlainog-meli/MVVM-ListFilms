@@ -78,7 +78,7 @@ extension ListViewController {
                 }
                 presentedViewController = nil
             case .detail(let movie):
-                // Optional according to design
+                // Optional according to design need explanation from Jaime
 //                let vc = environment.buildMovieDetail!(movie)
                 let vc = DetailViewController(viewModel: .init(movie: movie))
                 self?.navigationController?.pushViewController(vc, animated: true)

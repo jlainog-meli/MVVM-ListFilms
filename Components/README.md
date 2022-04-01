@@ -29,7 +29,6 @@ extension Environment {
 }
 ```
 
-
 ## ListFilms:
 This package represent the List Feature that allows you to present a list of movies.
 The public interface offers you to instanciate a UI based on a given ViewModel
@@ -64,7 +63,7 @@ public func setEnvironment(_ env: Environment)
 public struct Environment {
     public init(
         mainQueue: AnySchedulerOf<DispatchQueue> = .main,
-         getTopRatedMovies: @escaping (_ completion: @escaping (Result<MoviesList, MovieError>) -> Void) -> Void
+        getTopRatedMovies: @escaping (_ completion: @escaping (Result<MoviesList, MovieError>) -> Void) -> Void
     )
 
     public var buildMovieDetail: ((Movie) -> UIViewController)?

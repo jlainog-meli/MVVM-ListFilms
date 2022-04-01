@@ -28,6 +28,7 @@ public final class ListViewModel {
         self.route = route
     }
     
+    // MARK: - Actions
     func viewDidLoad() {
         guard state == .idle else { return }
         fetchMovies()
