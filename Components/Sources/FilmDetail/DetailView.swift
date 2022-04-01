@@ -192,7 +192,7 @@ extension DetailView {
     }
     
     private func setImage(data: Movie) {
-        if let urlPhoto = URL(string: data.posterPath) {
+        if let urlPhoto = URL(string: data.posterURL) {
             let session = URLSession.shared
             let task = session.dataTask(with: urlPhoto) { [weak imageFilm] data, response, error in
                 guard let data = data else {

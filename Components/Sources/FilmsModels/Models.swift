@@ -58,7 +58,7 @@ extension Movie {
     public static let deadpool = Self(
         popularity: 1,
         voteCount: 1,
-        posterPath: "",
+        posterPath: "/yGSxMiF0cYuAiyuve5DA6bnWEOI.jpg",
         genreIds: [28],
         title: "Deadpool",
         overview: """
