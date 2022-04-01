@@ -41,7 +41,7 @@ public final class ListViewModel {
                 case let .success(response):
                     self?.state = .hasData(data: response)
                 case let .failure(error):
-                    self?.state = .hasError(message: error.localizedDescription)
+                    self?.state = .hasError(message: "\(error.wrapedError)")
                 }
             }
         }

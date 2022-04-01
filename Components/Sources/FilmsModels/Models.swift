@@ -1,8 +1,7 @@
 import Foundation
 
-public struct MovieError: Error, LocalizedError {
-    var wrapedError: Error
-    var localizedDescription: String { wrapedError.localizedDescription }
+public struct MovieError: Error {
+    public var wrapedError: Error
     
     public init(_ error: Error) {
         self.wrapedError = error
