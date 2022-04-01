@@ -116,8 +116,8 @@ final class DetailView: UIView {
     }
     
     // MARK: - Setup
-    func setupUI(state: Movie) {
-        setDataView(data: state)
+    func setupUI(_ movie: Movie, _ genres: [Genre]) {
+        setDataView(movie, genres)
     }
 }
 
@@ -183,9 +183,9 @@ extension DetailView {
         ])
     }
     
-    private func setDataView(data: Movie) {
+    private func setDataView(_ data: Movie, _ genres: [Genre]) {
         contentTitleNameLabel.text = data.title
-        contentGenreLabel.text = data.genreIds.description
+        contentGenreLabel.text = genres.isEmpty ? data.genreIds.description : genres.map(\.name).description
         contentDataLabel.text = data.releaseDate
         contentOverviewLabel.text = data.overview
         setImage(data: data)

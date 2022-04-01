@@ -25,13 +25,16 @@ public func setEnvironment(_ env: Environment) {
 public struct Environment {
     var mainQueue: AnySchedulerOf<DispatchQueue>
     var getTopRatedMovies: (_ completion: @escaping (Result<MoviesList, MovieError>) -> Void) -> Void
+    var genre: (_ genreIds: [Int], _ callback: @escaping (Result<[Genre], MovieError>) -> Void) -> Void
     
     public init(
         mainQueue: AnySchedulerOf<DispatchQueue> = .main,
-        getTopRatedMovies: @escaping (_ completion: @escaping (Result<MoviesList, MovieError>) -> Void) -> Void
+        getTopRatedMovies: @escaping (_ completion: @escaping (Result<MoviesList, MovieError>) -> Void) -> Void,
+        genre: @escaping (_ genreIds: [Int], _ callback: @escaping (Result<[Genre], MovieError>) -> Void) -> Void
     ) {
         self.mainQueue = mainQueue
         self.getTopRatedMovies = getTopRatedMovies
+        self.genre = genre
     }
 }
 
@@ -40,12 +43,14 @@ extension Environment {
     #if DEBUG
     public static var noop = Self(
         mainQueue: .immediate,
-        getTopRatedMovies: { _ in }
+        getTopRatedMovies: { _ in },
+        genre: { _,_ in }
     )
     #endif
     static var failing = Self(
         mainQueue: .failing,
-        getTopRatedMovies: { _ in XCTFail(#function) }
+        getTopRatedMovies: { _ in XCTFail(#function) },
+        genre: { _,_ in XCTFail(#function) }
     )
 }
 
@@ -63,6 +68,9 @@ extension Environment {
         return env
     }
     var filmsDetail: FilmDetail.Environment {
-        .init(mainQueue: self.mainQueue)
+        .init(
+            mainQueue: self.mainQueue,
+            genre: self.genre
+        )
     }
 }

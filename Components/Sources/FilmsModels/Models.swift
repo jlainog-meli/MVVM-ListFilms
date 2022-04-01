@@ -60,7 +60,7 @@ extension Movie {
         popularity: 1,
         voteCount: 1,
         posterPath: "",
-        genreIds: [1],
+        genreIds: [28],
         title: "Deadpool",
         overview: "",
         releaseDate: ""
@@ -74,4 +74,14 @@ extension Movie {
 
 private enum Constants {
     static let posterPath: String = "https://image.tmdb.org/t/p/w500"
+}
+
+public struct Genre: Codable, Equatable {
+    public init(id: Int, name: String) {
+        self.id = id
+        self.name = name
+    }
+    
+    public let id: Int
+    public let name: String
 }

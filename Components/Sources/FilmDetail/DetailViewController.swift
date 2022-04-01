@@ -14,10 +14,6 @@ public final class DetailViewController: UIViewController {
     private let detailView: DetailView
     private let viewModel: DetailViewModel
 
-    // MARK: - Public Attributes
-
-//    public weak var flowProtocol: DetailViewFlowProtocol?
-    
     // MARK: - Setup
 
     public init(viewModel: DetailViewModel) {
@@ -38,7 +34,17 @@ public final class DetailViewController: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // MARK: View creation + Configuration
         title = Constants.title
-        detailView.setupUI(state: viewModel.movie)
+        
+        // MARK: View model bindings
+        viewModel.genresDidChange = { [weak self] in
+            guard let self = self else { return }
+            self.detailView.setupUI(self.viewModel.movie, $0)
+        }
+        detailView.setupUI(viewModel.movie, viewModel.genres)
+        
+        viewModel.viewDidLoad()
     }
 }

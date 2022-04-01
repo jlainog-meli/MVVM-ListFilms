@@ -63,14 +63,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 extension App.Environment {
-    static let live = Self(
-        mainQueue: .main,
-        getTopRatedMovies: { callback in
-            NetworkOperation().fetchNetwork(request: ListRequests.getTopRatedMovies) { (result: Result<MoviesList, NetworkOperationError>) in
-                callback(result.mapError(MovieError.init))
+    static let live: Self = {
+        let networkOperation = NetworkOperation()
+        return Self(
+            mainQueue: .main,
+            getTopRatedMovies: { callback in
+                networkOperation.fetchNetwork(request: ListRequests.getTopRatedMovies) { (result: Result<MoviesList, NetworkOperationError>) in
+                    callback(result.mapError(MovieError.init))
+                }
+            },
+            genre: { ids, callback in
+                GenreMovieUseCase(network: networkOperation).getGenreMovie {
+                    let result = $0.map { list in
+                        list.genres.map { genre in
+                            Genre.init(id: genre.id, name: genre.name)
+                        }
+                        .filter { ids.contains($0.id) } 
+                    }
+                    .mapError(MovieError.init)
+                    callback(result)
+                }
             }
-        }
-    )
+        )
+    }()
     
     static let delayedFail = Self(
         mainQueue: .immediate,
@@ -78,6 +93,7 @@ extension App.Environment {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 callback(.failure(.init(NetworkOperationError.noURL)))
             }
-        }
+        },
+        genre: { _, _ in }
     )
 }
