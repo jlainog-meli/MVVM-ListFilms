@@ -554,6 +554,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A03CE5E627F77370008426A6 /* PBXTargetDependency */,
 				79E829F627F14C820006A5CE /* PBXTargetDependency */,
 			);
 			name = "MVVM-ListFilmsTests";
@@ -589,6 +590,9 @@
 				Base,
 			);
 			mainGroup = 79E829D527F14C7F0006A5CE;
+			packageReferences = (
+				A03CE5E227F76807008426A6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = 79E829DF27F14C7F0006A5CE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -737,6 +741,10 @@
 			isa = PBXTargetDependency;
 			target = 79E829DD27F14C7F0006A5CE /* MVVM-ListFilms */;
 			targetProxy = 79E829F527F14C820006A5CE /* PBXContainerItemProxy */;
+		};
+		A03CE5E627F77370008426A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = A03CE5E527F77370008426A6 /* SnapshotTesting */;
 		};
 /* End PBXTargetDependency section */
 
@@ -989,6 +997,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		A03CE5E227F76807008426A6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		A03CE5D427F54E95008426A6 /* App */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1013,6 +1032,11 @@
 		A03CE5DE27F5D4EB008426A6 /* FilmDetail */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FilmDetail;
+		};
+		A03CE5E527F77370008426A6 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A03CE5E227F76807008426A6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -61,8 +61,10 @@ extension Movie {
         posterPath: "",
         genreIds: [28],
         title: "Deadpool",
-        overview: "",
-        releaseDate: ""
+        overview: """
+Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life. Wade Wilson is a small-time mercenary. He meets Vanessa and falls in love. Life is idyllic until one day he is diagnosed with terminal cancer.
+""",
+        releaseDate: "2016/Mocked"
     )
 }
 #endif

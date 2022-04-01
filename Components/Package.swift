@@ -42,6 +42,10 @@ let package = Package(
     dependencies: [
       .package(url: "https://github.com/airbnb/lottie-ios", .upToNextMajor(from: "3.0.0")),
       .package(url: "https://github.com/pointfreeco/combine-schedulers", .upToNextMajor(from: "0.5.0")),
+      .package(
+        url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
+        .upToNextMajor(from: "1.9.0")
+      ),
     ],
     targets: [
         .target(
@@ -50,7 +54,10 @@ let package = Package(
         ),
         .testTarget(
             name: "AppTests",
-            dependencies: ["App"]
+            dependencies: [
+                "App",
+                .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
+            ]
         ),
         
         .target(
@@ -64,7 +71,10 @@ let package = Package(
         ),
         .testTarget(
             name: "ListFilmsTests",
-            dependencies: ["ListFilms"]
+            dependencies: [
+                "ListFilms",
+                .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
+            ]
         ),
         
         .target(
@@ -76,7 +86,10 @@ let package = Package(
         ),
         .testTarget(
             name: "FilmDetailTests",
-            dependencies: ["FilmDetail"]
+            dependencies: [
+                "FilmDetail",
+                .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
+            ]
         ),
         
         .target(name: "FilmsModels"),

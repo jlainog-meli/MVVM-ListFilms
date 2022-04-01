@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -42,10 +43,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "79E829FD27F14C820006A5CE"
-               BuildableName = "MVVM-ListFilmsUITests.xctest"
-               BlueprintName = "MVVM-ListFilmsUITests"
-               ReferencedContainer = "container:MVVM-ListFilms.xcodeproj">
+               BlueprintIdentifier = "AppTests"
+               BuildableName = "AppTests"
+               BlueprintName = "AppTests"
+               ReferencedContainer = "container:Components">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FilmDetailTests"
+               BuildableName = "FilmDetailTests"
+               BlueprintName = "FilmDetailTests"
+               ReferencedContainer = "container:Components">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "ListFilmsTests"
+               BuildableName = "ListFilmsTests"
+               BlueprintName = "ListFilmsTests"
+               ReferencedContainer = "container:Components">
             </BuildableReference>
          </TestableReference>
       </Testables>
