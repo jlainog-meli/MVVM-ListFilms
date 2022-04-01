@@ -13,12 +13,12 @@ struct TopRatedMoviesResponse: Codable {
     let totalPages: Int
     let results: [TopRatedListResults]
 
-    enum CodingKeys: String, CodingKey {
-        case page = "page"
-        case totalResults = "total_results"
-        case totalPages = "total_pages"
-        case results = "results"
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case page = "page"
+//        case totalResults = "total_results"
+//        case totalPages = "total_pages"
+//        case results = "results"
+//    }
 }
 
 struct TopRatedListResults: Codable {
@@ -30,13 +30,13 @@ struct TopRatedListResults: Codable {
     let overview: String
     let releaseDate: String
 
-    enum CodingKeys: String, CodingKey {
-        case popularity = "popularity"
-        case voteCount = "vote_count"
-        case posterPath = "poster_path"
-        case genreIds = "genre_ids"
-        case title = "title"
-        case overview = "overview"
-        case releaseDate = "release_date"
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case popularity = "popularity"
+//        case voteCount = "vote_count"
+//        case posterPath = "poster_path"
+//        case genreIds = "genre_ids"
+//        case title = "title"
+//        case overview = "overview"
+//        case releaseDate = "release_date"
+//    }
 }
